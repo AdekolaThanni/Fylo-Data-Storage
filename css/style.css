@@ -1,0 +1,236 @@
+/* Declare variables */
+:root {
+    --gradient-from: hsl(6, 100%, 80%); 
+    --gradient-to: hsl(335, 100%, 65%);
+    --pale-blue: hsl(243, 100%, 93%);
+    --grayish-blue: hsl(229, 7%, 55%);
+    --dark-blue: hsl(228, 56%, 26%);
+    --very-dark-blue: hsl(229, 57%, 11%);
+}
+
+*, *::after, *::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    color: white;
+    font-family: sans-serif;
+    font-size: 1.4rem;
+    background-color: var(--very-dark-blue);
+    background-image: url("../images/bg-desktop.png");
+    background-repeat: no-repeat;
+    background-size: 100vw 50vh;
+    background-position: 0 50vh;
+    padding: 0 2rem;
+}
+
+.container {
+    max-width: 90rem;
+    margin: 40vh auto 10rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.box-1, .box-2 {
+    background-color: var(--dark-blue);
+    border-radius: 1rem;
+    padding: 2rem;
+}
+
+.box-1 {
+    width: 33%;
+    border-top-right-radius: 7rem;
+}
+
+.box-2 {
+    width: 65%;
+    position: relative;
+}
+
+.logo {
+    margin-bottom: 2rem;
+}
+
+.feature-box {
+    display: flex;
+}
+
+.feature {
+    background-color: var(--very-dark-blue);
+    margin-right: 1rem;
+    width: 4rem;
+    height: 4rem;
+    padding: 1rem 0 0 .8rem;
+    border-radius: .5rem;
+    position: relative;
+}
+
+
+.text {
+    color: var(--grayish-blue);
+}
+
+.text span {
+    color: white;
+}
+
+.size-left {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 1rem;
+    color: var(--grayish-blue);
+    text-align: center;
+    padding: 1.5rem;
+    height: fit-content;
+    width: fit-content;
+
+    position: absolute;
+    top: -5.5rem;
+    right: 3rem;
+}
+
+.size-left h1 {
+   color: var(--very-dark-blue);
+   margin-right: 1rem;
+   font-size: 3.5rem;
+}
+
+.size-left h1 span {
+    display: inline-block;
+}
+
+.size-left h1 span:nth-child(1){
+    transform: translateY(.5rem);
+}
+
+.size-left h1 span:nth-child(3) {
+    transform: translateY(.8rem);
+}
+
+.size-left::after {
+    background-color: white;
+    height: 2.5rem;
+    width: 2.5rem;
+    position: absolute;
+    right: 0;
+    bottom: -1.7rem;
+    clip-path: polygon(0 0, 100% 0, 100% 100%);
+}
+
+.size-gauge {
+    width: 98%;
+    height: 1.5rem;
+    border-radius: 2rem;
+    background-color: var(--very-dark-blue);
+    margin: 1rem auto;
+    position: relative;
+    border: 1px solid var(--very-dark-blue);
+}
+
+.size-gauge::after, .size-gauge::before, .size-left::after {
+    content: "";
+    display: block;
+}
+
+.size-gauge::before {
+    width: 81.5%;
+    height: 100%;
+    border-radius: 2rem;
+    background-image: linear-gradient(to right, var(--gradient-from), var(--gradient-to));
+}
+
+.size-gauge::after {
+    width: 1rem;
+    height: 1rem;
+    background-color: white;
+    position: absolute;
+    left: 79.3%;
+    top: .12rem;
+    border-radius: 100%;
+}
+
+.size {
+    display: flex;
+    justify-content: space-between;
+}
+
+.attribution { 
+    font-size: 1.5rem;
+    text-align: center; 
+}
+.attribution a { 
+    text-decoration: none;
+    color: hsl(228, 45%, 44%); 
+}
+
+@media only screen and (max-width: 43.75em){
+    html {
+        font-size: 50%;
+    }
+
+    .feature {
+        padding-top: .7rem;
+    }
+
+    .feature-icon {
+        transform: scale(.8);
+    }
+}
+
+@media only screen and (max-width: 31.25em){
+    html {
+        font-size: 62.5%;
+    }
+    
+    body {
+        background-image: url("../images/bg-mobile.png");
+        background-size: 100vw 105vh;
+        background-position: 0 0;
+    }
+
+    .container {
+        flex-direction: column;
+        align-items: stretch;
+        margin: 8rem auto 6rem;
+    }
+
+    .box-1, .box-2 {
+        width: 100%;
+        padding: 4rem;
+    }
+
+    .box-1 {
+        margin-bottom: 2rem;
+    }
+
+    .feature {
+        margin-right: 2rem;
+    }
+
+    .feature-icon {
+        transform: scale(1);
+    }
+
+    .text {
+        text-align: center;
+        margin-bottom: 3rem;
+    }
+
+    .size-left {
+        top: 80%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .size-left::after {
+        display: none;
+    }
+}
